@@ -12,10 +12,15 @@ class m170818_102912_create_locality_table extends Migration
      */
     public function up()
     {
+        $tableOptions = null;
+        if($this->db->driverName === 'mysql'){
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+        }
+
         $this->createTable('locality', [
             'id' => $this->primaryKey(),
             'name_localiti' => $this->string()->notNull(),
-        ]);
+        ], $tableOptions);
     }
 
     /**
