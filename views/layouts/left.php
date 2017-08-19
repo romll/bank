@@ -60,6 +60,13 @@
                             ],
                         ],
                     ],
+                    ['label' => 'Меню', 'options' => ['class' => 'header']],
+                    ['label' => 'Довідник банків', 'icon' => 'folse', 'url' => ['/handbk-bank']],
+                    ['label' => 'Довідник видів НП', 'icon' => 'folse', 'url' => ['/locality']],
+                    ['label' => 'Довідник ознак', 'icon' => 'folse', 'url' => ['/additional-handbk']],
+                    ['label' => 'Виписка банку', 'icon' => 'folse', 'url' => ['/statement']],
+                    ['label' => 'Коригування', 'icon' => 'folse', 'url' => ['/adjustment']],
+                    ['label' => 'Оплата оп актам ПКЕЕн', 'icon' => 'folse', 'url' => ['/akt']],
                 ],
             ]
         ) ?>
