@@ -8,13 +8,6 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru-Ru',
     'components' => [
-        /*'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/phundament/app'
-                ],
-            ],
-        ],*/
         'assetManager' => [
             'bundles' => [
                 'dmstr\web\AdminLteAsset' => [
