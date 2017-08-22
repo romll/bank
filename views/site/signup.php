@@ -1,13 +1,12 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = 'Авторизація';
+$this->title = 'Реєстрація';
 
 $fieldOptions1 = [
     'options' => ['class' => 'form-group has-feedback'],
@@ -22,39 +21,37 @@ $fieldOptions2 = [
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#">Вхід до систиеми</a>
+        <a href="#">Реєстрація</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Авторизуйтесь, щоб розпочати роботу</p>
+        <p class="login-box-msg">Зареєструйтеся для початку роботи</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
         <?= $form
             ->field($model, 'username', $fieldOptions1)
             ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('І\'мя')]) ?>
+            ->textInput(['placeholder' => $model->getAttributeLabel('Оберіть і\'мя')]) ?>
 
         <?= $form
-            ->field($model, 'password', $fieldOptions2)
+            ->field($model, 'password', $fieldOptions2)->passwordInput()
             ->label(false)
             ->passwordInput(['placeholder' => $model->getAttributeLabel('Пароль')]) ?>
 
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-xs-7">
                 <?//= $form->field($model, 'rememberMe')->checkbox()?>
             </div>
             <!-- /.col -->
-            <div class="col-xs-4">
-                <?= Html::submitButton('Вхід', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+            <div class="col-xs-5">
+                <?= Html::submitButton('Реєстрація', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'signup-button']) ?>
             </div>
             <!-- /.col -->
         </div>
 
 
         <?php ActiveForm::end(); ?>
-
-        <a href="<?= Url::to(['site/signup']) ?>" class="text-center">Зареєструватись в системі</a>
 
     </div>
     <!-- /.login-box-body -->
