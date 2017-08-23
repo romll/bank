@@ -64,6 +64,7 @@
                     'options' => ['class' => 'sidebar-menu'],
                     'items' => [
                         ['label' => 'Вхід', 'icon' => 'folse', 'url' => ['site/login']],
+                        ['label' => 'Реєстрація', 'icon' => 'folse', 'url' => ['site/signup']],
                     ],
                 ]
             );
