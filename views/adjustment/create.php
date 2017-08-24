@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Adjustment */
 
 $this->title = 'Додати коригування';
-$this->params['breadcrumbs'][] = ['label' => 'Adjustments', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Коригування', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="adjustment-create">

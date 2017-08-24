@@ -66,7 +66,9 @@ class AdditionalHandbkController extends Controller
         $model = new AdditionalHandbk();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('saccess', 'Нова ознака додана');
+            return $this->refresh();
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +87,9 @@ class AdditionalHandbkController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('saccess', 'Запис успішно зкориговано');
+            return $this->refresh();
         } else {
             return $this->render('update', [
                 'model' => $model,

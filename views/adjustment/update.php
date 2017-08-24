@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Adjustment */
 
-$this->title = 'Update Adjustment: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Adjustments', 'url' => ['index']];
+$this->title = 'Редагувати суму: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Кригування', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редагувати';
 ?>
 <div class="adjustment-update">
 

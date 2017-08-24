@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Statement */
 
 $this->title = 'Додати виписку';
-$this->params['breadcrumbs'][] = ['label' => 'Statements', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Виписка', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statement-create">
