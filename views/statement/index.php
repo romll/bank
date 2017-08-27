@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\components\StatementModalWidget;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\StatementSearch */
@@ -16,7 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Додати виписку', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Додати виписку', ['_form'], ['class' => 'btn btn-success', 'data' => ['toggle' => 'modal', 'target' => '#myModal', 'backdrop' => 'static']])?>
+
+        <?= StatementModalWidget::widget([])  ?>
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -36,4 +40,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
 </div>

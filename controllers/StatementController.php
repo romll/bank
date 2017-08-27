@@ -66,7 +66,10 @@ class StatementController extends Controller
         $model = new Statement();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $sesion = Yii::$app->session;
+            $sesion->setFlash('saccess', "{$model->sum}.грн");
+            return $this->refresh();
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
