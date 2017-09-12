@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use dmstr\helpers\AdminLteHelper;
+use yii\bootstrap\Modal;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -58,6 +59,21 @@ if (Yii::$app->controller->action->id === 'login' || Yii::$app->controller->acti
         ) ?>
 
     </div>
+
+    <?php
+
+    Modal::begin([
+        'headerOptions' => ['id' => 'modalHeader'],
+        'id' => 'modal',
+        'size' => 'modal-lg',
+        'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+    ]);
+
+    echo "<div id = 'modalContent'></div>";
+
+    Modal::end();
+
+    ?>
 
     <?php $this->endBody() ?>
     </body>

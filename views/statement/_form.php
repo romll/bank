@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Statement */
@@ -10,7 +11,12 @@ use yii\widgets\ActiveForm;
 
 <div class="statement-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+
+    <?php $form = ActiveForm::begin([
+        'options' => [
+            'id' => 'create-bank'
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'date_pay')->textInput() ?>
 
@@ -31,5 +37,4 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>

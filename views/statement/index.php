@@ -1,8 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use app\components\StatementModalWidget;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\StatementSearch */
@@ -13,13 +15,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statement-index">
 
+
+
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Додати виписку', ['_form'], ['class' => 'btn btn-success', 'data' => ['toggle' => 'modal', 'target' => '#myModal', 'backdrop' => 'static']])?>
+        <?= Html::button('Додати виписку', ['value' => Url::to(['statement/create']), 'title' => $this->title, 'class' => 'showModalButton btn btn-success']); ?>
 
-        <?= StatementModalWidget::widget([])  ?>
 
     </p>
     <?= GridView::widget([
