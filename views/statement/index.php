@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use app\components\StatementModalWidget;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -25,6 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     </p>
+    <?php Pjax::begin([
+        'id' => 'bank'
+    ]) ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -32,10 +34,23 @@ $this->params['breadcrumbs'][] = $this->title;
             //['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'date_pay',
+            //'date_pay',
+            [
+                'attribute' => 'date_pay',
+                'format' => ['date', 'php:d.m.Y'],
+            ],
             'sum',
-            'handbk_bank_id',
-            'locality_id',
+            //'handbk_bank_id',
+            [
+                'attribute' => 'handbk_bank_id',
+                'value' => 'handbkBank.name_bank',
+            ],
+            //'locality_id',
+            [
+                'attribute' => 'locality_id',
+                'value' => 'locality.name_localiti',
+
+            ],
             // 'checked',
             // 'note:ntext',
             // 'state',
@@ -43,5 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php Pjax::end() ?>
 
 </div>

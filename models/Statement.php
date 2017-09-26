@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "statement".
@@ -36,7 +37,7 @@ class Statement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date_pay', 'sum', 'handbk_bank_id', 'locality_id'], 'required'],
+            [['date_pay', 'sum', 'handbk_bank_id'], 'required'],
             [['date_pay'], 'safe'],
             [['sum'], 'number'],
             [['handbk_bank_id', 'locality_id', 'checked', 'state'], 'integer'],
@@ -58,9 +59,26 @@ class Statement extends \yii\db\ActiveRecord
             'handbk_bank_id' => 'Банк',
             'locality_id' => 'Тип населенорго пункту',
             'checked' => 'Checked',
-            'note' => 'Note',
+            'note' => 'Примітка',
             'state' => 'State',
         ];
+    }
+
+    public function getBankName()
+    {
+        $bankName = HandbkBank::find()->all();
+        return ArrayHelper::map($bankName, 'id', 'name_bank');
+    }
+
+    /*public  function getBankName()
+    {
+        return ArrayHelper::getValue($this->getBankList(), $this->handbk_bank_id);
+    }*/
+
+    public  function getLocalitiName()
+    {
+        $localitiTape =  Locality::find()->all();
+        return ArrayHelper::map($localitiTape, 'id', 'name_localiti');
     }
 
     /**

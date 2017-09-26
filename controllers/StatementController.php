@@ -67,10 +67,16 @@ class StatementController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $sesion = Yii::$app->session;
-            $sesion->setFlash('saccess', "{$model->sum}.грн");
-            return $this->renderAjax('_form', [
+            $sesion->setFlash('saccess', "{$model->sum} грн. успішно додано");
+            /*return $this->render('create', [
                 'model' => $model,
-            ]);
+            ]);*/
+            if (Yii::$app->request->isAjax) {
+                $model = new Statement();
+                return $this->renderAjax('_form', [
+                    'model' => $model,
+                ]);
+            }
             //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             if (Yii::$app->request->isAjax) {

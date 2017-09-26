@@ -48,6 +48,14 @@ class StatementSearch extends Statement
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+              'pageSize' => 100
+            ],
+            'sort' => [
+              'defaultOrder' => [
+                  'date_pay' => SORT_DESC
+              ]
+            ],
         ]);
 
         $this->load($params);

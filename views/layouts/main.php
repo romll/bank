@@ -60,9 +60,22 @@ if (Yii::$app->controller->action->id === 'login' || Yii::$app->controller->acti
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Название модали</h4>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
     <?php
 
-    Modal::begin([
+    /*Modal::begin([
         'headerOptions' => ['id' => 'modalHeader'],
         'id' => 'modal',
         'size' => 'modal-lg',
@@ -71,7 +84,7 @@ if (Yii::$app->controller->action->id === 'login' || Yii::$app->controller->acti
 
     echo "<div id = 'modalContent'></div>";
 
-    Modal::end();
+    Modal::end();*/
 
     ?>
 

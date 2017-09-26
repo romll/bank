@@ -22,7 +22,7 @@ class m170818_103108_create_statement_table extends Migration
             'date_pay' => $this->date()->notNull(),
             'sum' => $this->decimal(5, 2)->notNull(),
             'handbk_bank_id' => $this->integer()->notNull(),
-            'locality_id' => $this->integer()->notNull(),
+            'locality_id' => $this->integer(),
             'checked' => $this->integer()->defaultValue(0),
             'note' => $this->text(),
             'state' => $this->integer()->defaultValue(0),
