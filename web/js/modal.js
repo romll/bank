@@ -1,5 +1,5 @@
-$(function () {
-    $(document).on('click', '.showModalButton', function () {
+$(document).ready(function () {
+    $('.showModalButton').on('click', function () {
         if ($('#modal').data('show.bs.modal')){
             $('#modal').find('.modal-body')
                 .load($(this).attr('value'));

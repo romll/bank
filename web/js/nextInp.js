@@ -1,22 +1,30 @@
 $(document).ready(function(){
     $('#modal').on('shown.bs.modal', function () {
-        var $inputs = $('#modal').find('.form-group');
+        //var $inputs = $('#modal').find('.form-group');
 
         if ($('#statement-sum').is(':focus')){
             $('#statement-sum').keypress(function(event) {
                 if (event.keyCode == 13) {
-                    $('.select2-selection').bind('click', function () {
-                        $('.select2-selection').focus();
-                        event.preventDefault();
-                    });
-                    $('.select2-selection').trigger('click');
+                    $(event.target).parent().next().find('.select2-selection').focus();
+                    if ($('.select2-selection').is(':focus')) {
+                        alert('ehf');
+
+                    }
                     event.preventDefault();
                 }
             });
-        }else if($('.select2-selection').is(':focus') && $('#select2-statement-handbk_bank_id-container')){
-            $('.select2-selection').keypress(function(event) {
+        }
+       // form-group
+
+        /*else {($('.select2-selection').is(':focus'))
+            $('.select2-selection__arrow').keypress(function(event) {
                 if (event.keyCode == 13) {
-                    alert('gggg');
+                    $('.select2-selection__arrow').bind('click', function () {
+                        alert('gggg');
+                        event.preventDefault();
+                    });
+                    $('.select2-selection__arrow').trigger('click');
+                    event.preventDefault();
                 }
             });
         }

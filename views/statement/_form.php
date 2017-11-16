@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use kartik\date\DatePicker;
-use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Statement */
@@ -15,8 +14,8 @@ use kartik\select2\Select2;
 $this->registerJsFile('@web/js/ReloadGridView.js',
     ['depends' => [\yii\web\JqueryAsset::className()]]);
 
-$this->registerJsFile('@web/js/nextInp.js',
-    ['depends' => [\yii\web\JqueryAsset::className()]]);
+/*$this->registerJsFile('@web/js/nextInp.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]);*/
 ?>
 
 <div class="statement-form">
@@ -63,20 +62,9 @@ $this->registerJsFile('@web/js/nextInp.js',
 
     <?= $form->field($model, 'sum')->textInput(['maxlength' => true, 'autofocus' => true]) ?>
 
-    <?php //$paramsBank = ['prompt' => 'Виберіть банк...'] ?>
+    <?php $paramsBank = ['prompt' => 'Виберіть банк...'] ?>
 
-    <?= $form->field($model, 'handbk_bank_id')->widget(Select2::className(), [
-        'name' => 'name-bank',
-        'data' => $model->getBankName(),
-        'options' => [
-            'placeholder' => 'Виберіть банк...',
-        ],
-        'pluginOptions' => [
-            'allowClear' => false
-        ],
-    ])
-
-    /*dropDownList($model->getBankName(), $paramsBank)*/ ?>
+    <?= $form->field($model, 'handbk_bank_id')->dropDownList($model->getBankName(), $paramsBank) ?>
 
     <?php $paramsLocaliti = ['prompt' => 'Вкажіть тип населенного пункту...'] ?>
 
